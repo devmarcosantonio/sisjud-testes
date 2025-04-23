@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EditableTable from '../../components/ui/EditableTable';
 import { allData } from './allDate';
-import { Pagination } from './Pagination';
+import { Pagination } from '../../components/ui/Pagination';
 import ModalReading from './ModalReading';
 
 const ReadingDocuments: React.FC = () => {
@@ -36,7 +36,7 @@ const ReadingDocuments: React.FC = () => {
     };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md w-full mt-6 flex flex-col ">
+    <div className=" p-4 rounded-lg shadow-md w-full h-200 bg-white mt-6 flex flex-col ">
 
       {isModalOpen ? <ModalReading handleOpenModal={handleOpenModal} handleCloseModal={handleCloseModal}/> : null}
       
@@ -56,7 +56,7 @@ const ReadingDocuments: React.FC = () => {
             className="border border-gray-300 rounded-md max-w-80 p-2 mt-5 "
         />
 
-        <button className='bg-transparent border-blue-800 border font-medium duration-100 text-blue-800 rounded-lg py-3 px-10 hover:bg-blue-800 hover:text-white' onClick={handleOpenModal}>Ler Documento</button>
+        <button className='bg-transparent border-blue-800 border font-medium duration-100 text-blue-800 rounded-lg h-10 px-10 hover:bg-blue-800 hover:text-white' onClick={handleOpenModal}>Ler Documento</button>
 
       </div>
       

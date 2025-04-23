@@ -11,35 +11,59 @@ const upload = multer({ storage: storage });
 
 // Habilita o CORS
 app.use(cors());
-
-const data = {
-    "codeFolder": "2022671899",
-    "processNumber": "0805640-92.2022.8.10.0076",
-    "yearMonth": "2018-11",
-    "opposingParty": "FERNANDO CARVALHO DE MORAES",
-    "activationDate": "2018-11-23T00:00:00",
-    "citationDate": "2018-11-23T00:00:00",
-    "occurrenceDate": "2018-11-23T00:00:00",
-    "legalArea": "CIVEL",
-    "costCenter": "RECUPERACAO",
-    "caseValue": 15399.00,
-    "estimatedValue": 2000.00,
-    "mainLawyer": "JULIANA NUNES LAMAR",
-    "organization": "1 VARA",
-    "office": "GALVAO LEONARDO ADVOCACIA",
-    "status": "ATIVO",
-    "closureDate": "2018-11-23T00:00:00",
-    "closureMode": "Modo de Encerramento",
-    "municipality": "BREJO",
-    "city": "BREJO",
-    "state": "MA",
-    "region": "LESTE",
-    "opposingLawyer": "RAIMUNDO NONATO CHAVES DE LIMA SIPAUBA FILHO",
-    "opposingState": "MA",
-    "contractCpf": "257.430.153-68",
-    "contractCnpj": "",
-    "team": "Equipe",
-    "markCaseAsCompleted": true
+export interface DocumentData {
+  codigoPasta?: string;
+  numeroProcesso?: string;
+  parteContraria?: string;
+  dataAtivacao?: string; // Formato de data (YYYY-MM-DD)
+  dataCitacao?: string; // Formato de data (YYYY-MM-DD)
+  dataOcorrencia?: string; // Formato de data (YYYY-MM-DD)
+  areaJuridica?: string;
+  centroCusto?: string;
+  valorCausa?: number;
+  valorEstimado?: number;
+  advogadoPrincipal?: string;
+  orgao?: string;
+  escritorio?: string;
+  status?: string;
+  dataEncerramento?: string // Formato de data (YYYY-MM-DD)
+  modoEncerramento?: string;
+  municipio?: string;
+  cidade?: string;
+  uf?: string;
+  regional?: string;
+  advogadoContrario?: string;
+  ufContrario?: string;
+  cpfContrato?: string;
+  cnpjContrato?: string;
+  equipe?: string;
+  concluido?: boolean;
+}
+const data:DocumentData = {
+  codigoPasta: "EQ12345",
+  numeroProcesso: "0001234-56.2023.8.00.0000",
+  parteContraria: "Equatorial Energia",
+  dataAtivacao: "2023-01-15",
+  dataCitacao: "2023-01-20",
+  dataOcorrencia: "2023-01-10",
+  areaJuridica: "Direito do Consumidor",
+  centroCusto: "CC001",
+  valorCausa: 15000.00,
+  valorEstimado: 20000.00,
+  advogadoPrincipal: "Dr. João Silva",
+  orgao: "Tribunal de Justiça",
+  escritorio: "Advocacia Silva e Associados",
+  status: "Em andamento",
+  municipio: "São Luís",
+  cidade: "São Luís",
+  uf: "MA",
+  regional: "Nordeste",
+  advogadoContrario: "Dr. Maria Oliveira",
+  ufContrario: "MA",
+  cpfContrato: "123.456.789-00",
+  cnpjContrato: "12.345.678/0001-99",
+  equipe: "Equipe A",
+  concluido: false
   }
 
 app.post('/upload', upload.single('file'), (req, res) => {

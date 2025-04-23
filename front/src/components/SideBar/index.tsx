@@ -24,9 +24,9 @@ const SideBar: React.FC<SideBarProps> = ({ openSideBar, openSubmenus, toggleSide
                 duration-300
                 transition-all ease-in-out
                 h-screen
-                ${openSideBar ? "w-60" : "translate-x-[-100%]"}
+                ${openSideBar ? "w-72" : "translate-x-[-100%]"}
 
-                ${openSideBar ? "md:w-80" : "md:w-16 md:translate-x-[0]"}
+                ${openSideBar ? "md:w-w-72" : "md:w-16 md:translate-x-[0]"}
                 
                 md:h-full
                 md:flex
@@ -46,7 +46,7 @@ const SideBar: React.FC<SideBarProps> = ({ openSideBar, openSubmenus, toggleSide
         </button>
         
             
-        <span className="flex w-full justify-center my-5"><img src={logoEquatorial} alt="logo equatorial" className={`duration-300 ${openSideBar ? "w-60": "w-[0px]"}`}/></span>
+        <span className="flex w-full justify-center mt-3"><img src={logoEquatorial} alt="logo equatorial" className={`duration-300 ${openSideBar ? "w-60": "w-[0px]"}`}/></span>
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400 to-transparent mt-4"></div>
         <nav>
 
@@ -62,12 +62,12 @@ const SideBar: React.FC<SideBarProps> = ({ openSideBar, openSubmenus, toggleSide
                             {menu.submenu.length > 0 ?
                                 
                             <div className="flex items-center  gap-2 cursor-pointer hover:bg-gray-200 rounded-md p-2 flex-1 w-full">
-                                <span>{menu.icon}</span>
+                  
                                 <span className={`duration-300 ${openSideBar ? "text-1xl" : "text-[0px]"}`} >{menu.label}</span>
                                 <span><ChevronDown color="gray" className={`duration-300 ${openSubmenus === index ? "rotate-180" : null} ${openSideBar ? "flex": "hidden"}`} /></span> 
                             </div>
                             :   <Link to={menu.path} className=" flex items-center gap-2 cursor-pointer hover:bg-gray-200 rounded-md p-2 flex-1">
-                                    {menu.icon}
+                          
                                     <span className={` duration-300 ${openSideBar ? "text-1xl" : "text-[0px]"}`} >{menu.label}</span>
                                 </Link>
                             }   
